@@ -1,0 +1,93 @@
+---
+title: "python"
+author: "imabr777"
+date: "February 18, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Part 3 - Conditionals
+## Task 10
+
+```{r, echo=TRUE}
+rand_num <- sample(1:100, size = 1)
+rand_num
+if (rand_num <= 25){
+    print("1st Quartile")
+} else if (25 < rand_num & rand_num <= 50){
+    print("2nd Quartile")
+} else if (50 < rand_num & rand_num <= 75){
+    print("3rd Quartile")
+} else if (75 < rand_num & rand_num <= 100){
+    print("4th Quartile")
+}
+```
+
+# Part 4 - for loops
+## Task 11
+```{r, echo=TRUE}
+cities <- list("Chicago, IL", "Indianapolis, IN", "Columbus, OH", "Detroit, MI", "Milwaukee, WI", "Kansas City, MI")
+for (city in cities) {
+  print(paste("Warning, residents of ", city, ", temperatures will reach sub-zero temperatures today, please stay indoors if possible", sep=""))
+}
+```
+
+## Task 12
+```{r, echo=TRUE}
+states <- list("Washington","California","Nevada","Idaho","Montana","Utah","Colorado","New Mexico")
+result_list <- list()
+for (state in states) {
+  temp <- paste("U://Users/Im/Geog_458/", state, ".shp", sep="")
+  result_list <- c(result_list,temp)
+  print(temp)
+}
+result_list
+```
+
+## Task 13
+```{r, echo=TRUE}
+i = 10
+while (i >= 0) {
+  print(paste("T-minus",i))
+  i = i - 1
+}
+```
+
+# Part 5 - Functions
+## Task 14
+```{r, echo=TRUE}
+countdown <- function(start) {
+  while (start >= 0) {
+    print(paste("T-minus",start))
+    start = start - 1
+  }
+}
+countdown(17)
+```
+
+## Task 15
+```{r, echo=TRUE}
+quartile_calc <- function(num) {
+  if (0 <= num & num <= 25){
+    print("1st Quartile")
+  } else if (25 < num & num <= 50){
+    print("2nd Quartile")
+  } else if (50 < num & num <= 75){
+    print("3rd Quartile")
+  } else if (75 < num & num <= 100){
+    print("4th Quartile")
+  } else {
+    print("Error")
+  }
+}
+quartile_calc(5)
+quartile_calc(35)
+quartile_calc(55)
+quartile_calc(85)
+quartile_calc(-5)
+quartile_calc(105)
+quartile_calc(0)
+quartile_calc(100)
